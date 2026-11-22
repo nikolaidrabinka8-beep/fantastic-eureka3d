@@ -22,7 +22,9 @@ jobs:
       - name: Setup export templates
         run: |
           mkdir -v -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
+          ls -la /root/.local/share/godot/export_templates/ || true
+          cp -r /root/.local/share/godot/export_templates/. ~/.local/share/godot/export_templates/
+          ls -la ~/.local/share/godot/export_templates/
 
       - name: Setup Android signing and editor settings
         run: |
